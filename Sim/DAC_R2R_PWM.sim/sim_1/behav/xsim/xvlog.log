@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/DAC_R2R_PWM/RTL/pwm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/DAC_R2R_PWM/Sim/DAC_R2R_PWM.srcs/sim_1/new/pwm_sim.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm_sim
