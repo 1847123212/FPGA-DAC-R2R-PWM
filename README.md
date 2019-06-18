@@ -2,7 +2,7 @@ FPGA-DAC based on R2R-PWM
 ===========================
 基于 **FPGA** 的 **极简DAC设计**
 
-仅用 **FPGA+若干电阻电容** ，实现 14bit+ 的中低速 DAC，代替集成 DAC 芯片 (例如AD5326，DAC8554等)，在FPGA系统中降低成本和电路复杂度，同时在采样率和精度间提高取舍的灵活性。
+仅用 **FPGA+若干电阻电容** ，实现 14bit+ 的中低速 DAC，代替 **集成 DAC 芯片** (例如AD5326，DAC8554等)，在FPGA系统中降低成本和电路复杂度，同时在采样率和精度的取舍上提高灵活性。
 
 # 原理
 使用 **R2R电阻网络** 融合 **PWM** : [参考网站](https://www.edn.com/design/analog/4458772/Hybrid-PWM-R2R-DAC-improves-on-both "参考网站")。我在此基础上利用 **FPGA的优势** 改进了 PWM 的方式，进一步 **降低了纹波** 。
@@ -14,7 +14,7 @@ FPGA-DAC based on R2R-PWM
 
 # 测试结果
 
-使用 **3bit R2R网络** + **11bit PWM** 拼成 **14bit 6000sps DAC** （电路如下），并用它产生 **三角波** ，用 **示波器** 观察。为了说明 PWM 产生的低bit是有效的，我截断了一些bit做比较。
+使用 **3bit R2R网络** + **11bit PWM** 拼成 **14bit 6ksps DAC** （电路如下），并用它产生 **三角波** ，用 **示波器** 观察。为了说明 PWM 产生的低bit是有用的，我截断了一些bit做比较。
 
 ![电路](https://github.com/WangXuan95/FPGA-DAC-R2R-PWM/blob/master/img/sch.png)
 
