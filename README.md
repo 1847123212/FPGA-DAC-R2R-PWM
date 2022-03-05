@@ -16,22 +16,22 @@ FPGA-DAC based on R2R-PWM
 
 使用 **3bit R2R网络** + **11bit PWM** 拼成 **14bit 6ksps DAC** （电路如下），并用它产生 **三角波** ，用 **示波器** 观察。为了说明 PWM 产生的低bit是有用的，我截断了一些bit做比较。
 
-![电路](https://github.com/WangXuan95/FPGA-DAC-R2R-PWM/blob/master/img/sch.png)
+![电路](./img/sch.png)
 
 > 这里尚且使用的是普通的 1% 电阻，就已经能达到比较好的效果，如果用上 LT 的精密排阻，效果会更好。
 
 ## 大摆幅测试（Vpp=2500mV）
 
-![大摆幅测试](https://github.com/WangXuan95/FPGA-DAC-R2R-PWM/blob/master/img/Vpp2500.png)
+![大摆幅测试](./img/Vpp2500.png)
 
 ## 中摆幅测试（Vpp=96mV）
 
-![中摆幅测试](https://github.com/WangXuan95/FPGA-DAC-R2R-PWM/blob/master/img/Vpp96.png)
+![中摆幅测试](./img/Vpp96.png)
 
 ## 小摆幅测试（Vpp=7.4mV）
 
-![小摆幅测试](https://github.com/WangXuan95/FPGA-DAC-R2R-PWM/blob/master/img/Vpp7.png)
+![小摆幅测试](./img/Vpp7.png)
 
 ## 微摆幅测试（Vpp=1.0mV）
 
-![微摆幅测试](https://github.com/WangXuan95/FPGA-DAC-R2R-PWM/blob/master/img/Vpp1.png)
+![微摆幅测试](./img/Vpp1.png)
