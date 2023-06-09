@@ -17,22 +17,22 @@ localparam N = (1<<PWM_BITS);
 
 initial begin val_req=1'b0; pwm_out=1'b0; r2r_out=0; end
 
-reg  [R2R_BITS-1:0] r2r_valr = '0;
-reg  [PWM_BITS-1:0] cnt='0, cntr='0, pwm_valr='0, idx='0;
+reg  [R2R_BITS-1:0] r2r_valr = 0;
+reg  [PWM_BITS-1:0] cnt=0, cntr=0, pwm_valr=0, idx=0;
 
 always @ (posedge clk or negedge rstn)
     if(~rstn) begin
-        cnt <= '0;
+        cnt <= 0;
         val_req <= 1'b0;
     end else begin
-        cnt <= cnt + (PWM_BITS)'(1);
+        cnt <= cnt + 1;
         val_req <= (cnt==0);
     end
 
 always @ (posedge clk or negedge rstn)
     if(~rstn) begin
-        cntr <= '0;
-        {r2r_valr, pwm_valr} <= '0;
+        cntr <= 0;
+        {r2r_valr, pwm_valr} <= 0;
     end else begin
         cntr <= cnt;
         if(val_req) begin
@@ -42,19 +42,19 @@ always @ (posedge clk or negedge rstn)
     
 always @ (posedge clk or negedge rstn)
     if(~rstn) begin
-        idx <= '0;
+        idx <= 0;
         pwm_out <= 1'b0;
         r2r_out <= 0;
     end else begin
-        if(cntr == '0) begin
-            idx <= (PWM_BITS)'(1);
-            pwm_out <= (pwm_valr > '0);
+        if(cntr == 0) begin
+            idx <= 1;
+            pwm_out <= (pwm_valr > 0);
             r2r_out <= r2r_valr;
         end else begin
-            if(pwm_valr == '0) begin
+            if(pwm_valr == 0) begin
                 pwm_out <= 1'b0;
             end else if(cntr >= (idx*N/pwm_valr)) begin
-                idx <= idx + (PWM_BITS)'(1);
+                idx <= idx + 1;
                 pwm_out <= 1'b1;
             end else begin
                 pwm_out <= 1'b0;

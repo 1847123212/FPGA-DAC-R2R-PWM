@@ -12,13 +12,13 @@ localparam DAC_BITS = R2R_BITS + PWM_BITS;
 
 
 wire                val_req;
-reg  [DAC_BITS-1:0] dac_val = '0;
+reg  [DAC_BITS-1:0] dac_val = 0;
 reg                 dacval_incdec = 1'b0;
 
 
 always @ (posedge clk)
-    if(val_req) begin             // 生成锯齿波
-        if(~dacval_incdec) begin  // increase
+    if(val_req) begin                             // 生成锯齿波
+        if(~dacval_incdec) begin                  // increase
             if(dac_val >= 14'b10_0000_0000_0000)  // max
                 dacval_incdec = 1'b1;
         end else begin
@@ -26,9 +26,9 @@ always @ (posedge clk)
                 dacval_incdec = 1'b0;
         end
         if(~dacval_incdec)
-            dac_val <= dac_val + (DAC_BITS)'(1);
+            dac_val <= dac_val + 1;
         else
-            dac_val <= dac_val - (DAC_BITS)'(1);
+            dac_val <= dac_val - 1;
     end
 
 
